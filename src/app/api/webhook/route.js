@@ -6,7 +6,8 @@ export async function POST(req) {
     const twiml = new MessagingResponse();
     try {
         const targetLanguage = 'en'
-        const { searchParams } = new URL(req.url)
+        const body = await req.text()
+        const searchParams = new URLSearchParams(body)
         const NumMedia = searchParams.get("NumMedia")
         const MediaUrl0 = searchParams.get("MediaUrl0")
 
@@ -30,7 +31,7 @@ export async function POST(req) {
     catch (ex) {
         const {searchParams} = new URL(req.url)
         const sp = Array.from(searchParams)
-        const text = await req.text()
+        
         console.log(ex.message)
         message = twiml.message(`url: ${req.url}, text: ${text} name: ${ex.name}, message: ${ex.message}, stack: ${ex.stack}`)
         return new Response(message, {
