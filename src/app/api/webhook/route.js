@@ -2,6 +2,11 @@ import MessagingResponse from 'twilio/lib/twiml/MessagingResponse'
 import { transcript } from '../../../../utilities';
 
 export async function POST(req) {
+    message = twiml.message(JSON.stringify(req)).toString()
+    return new Response(message, {
+        status: 200,
+        headers: { 'Content-Type': 'text/xml' }
+    })
     const { searchParams } = new URL(req.url)
     const MediaUrl0 = searchParams.get("MediaUrl0")
     const twiml = new MessagingResponse();
