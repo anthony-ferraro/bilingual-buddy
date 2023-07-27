@@ -28,7 +28,10 @@ export async function POST(req) {
         }
     }
     catch (ex) {
-        message = twiml.message(`name: ${ex.name}, message: ${ex.message}, stack: ${ex.stack}`)
+        const {searchParams} = new URL(req.url)
+        const sp = Array.from(searchParams);
+        console.log(ex.message)
+        message = twiml.message(`parameters length: ${JSON.stringify(sp)} name: ${ex.name}, message: ${ex.message}, stack: ${ex.stack}`)
         return new Response(message, {
             status: 200,
             headers: { 'Content-Type': 'text/xml' }
