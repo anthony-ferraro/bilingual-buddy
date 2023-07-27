@@ -6,5 +6,8 @@ export async function POST(req) {
     const twiml = new MessagingResponse();
     const transcriptedText = await transcript(body.MediaUrl0)
     const message = twiml.message(transcriptedText).toString()
-    return new Response(message)
+    return new Response(message, {
+        status: 200,
+        headers: { 'Content-Type': 'text/xml' }
+    })
 }
