@@ -30,7 +30,7 @@ export async function POST(req) {
     catch (ex) {
         const {searchParams} = new URL(req.url)
         const sp = Array.from(searchParams)
-        const text = req.text()
+        const text = await req.text()
         console.log(ex.message)
         message = twiml.message(`url: ${req.url}, text: ${text} name: ${ex.name}, message: ${ex.message}, stack: ${ex.stack}`)
         return new Response(message, {
