@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "academic-ivy-394113",
+  "private_key_id": "97b01a94b599dca27ca70e73b5c51b26e388555e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCh/NdOHi0lUpnh\nuwWKbtJIEpGrDGDxfpfyKpRTu6tw6cXe+tjxHNquXvi5Pm7CSKD0KBes/zE//Ze2\n4+aksYoz+dlRBO/rPnjqO+d4y6z2l/DY0eNU98gxYiCzmAhm9qUQiQscr1TVDLcp\nx7BVrdirzHsn2H/8bM+PcKffTKSU+wAoSPKznR2kKF3b1Ok4ZjeUIEprhnXmnShZ\nTPSwjiBhpsCfZdTLvhYe9Ou3AGQ1q8EqaZPxosu/YfGB62Nt8S3g4IXu+uKTw9fI\n6cYVE/iOs0T8TEnMsnSbaDRb3jnXxjB/8Yc7vv6P/5/iTYNASgyGU/qc6MISHaFI\neXRa/u+PAgMBAAECggEAE0PmjhQ0Baqo7ITOqDkn6d8eKKavPOlzxB8LnFhx5QWY\nkpK+NxGEceqPpZBm9ypQzNjxKpJV1tN1NhDYFHbyWzN4L2o+knl6mKOz6Co+Zube\ng8WVRjy14tGrK/uFPExR3gE+gL8wKqp5ejmVSjYD0o2I3s32jXHveZLKFFpMKf+Y\n4DxylclbTI0oKSldQmEufpFlTOCYc7sU1CcYMHPJ/7M/gudvtEy7G1Y5vYUmkgbt\neYvJNnCUnpWYKsEsj82iKJ2+A7nKgwqE0KeWsj/ZbPm9/3dexFYI+5UM2yJFJ3sX\n8pYaBCtiA6pSRiRs8MBnRy7yBDWG/GXpuw58Q5ZwuQKBgQDbsZ86WEm5DOqXZsV0\nihKMWQVFld18qk5/2N+zIt0ML0DqGDC0wDD5FsfJPQr+vazqu+1hznzoIuiLiU54\n1+9kJAh+DLsCBLdHNjXFPHzHyWRA44OwcEse96u8IrdKiz+7AZixFRFCH6vFzYrS\ncQ7fUxElPAKCd4BLPjHt34urewKBgQC8weYYDrwN36uKJQBa/n8VExrN41DXX427\n30XdS2P9QWN8963oJEeZ8qQxaDRNItuAozEZge7GOJZi3IJE6KMTulQ9CyAQqM8b\nUB1E2aVE/2ejoxF2TcL1uYWa6Wx3wOrk2LNFJ/q00Tq0vmPBur8y81xIBa8FC346\nbhNNnYI1/QKBgFlTjFF1ymwCc3Qh5lEvPsFwBLO5brgcqxRSgwpcN5KXuAY21b74\nkjEFcTBCsLDJQICk7q0g/yqH3xO1PYHnEsAd4pIV7QeyES9UPGK46Gd3XFsB5u6b\nif/KZjp1xx75JW2NBZ+i2ESRig9ANpzAOXLWXJdOIhsYKcLuQ/DbPvf3AoGBAKF7\ndKDSQjnQR43ot9Qg85GRBZZsSWXn3naCvd9jNwib30QzFHmMSCFBPwzxrATttEHp\n2wCKcz7rfGTZZy0SpSkkeBq9INJ/yKcCM/gKBuTvZ7fLsw212vujmtR7rAsLZSkg\n5sVcPZRhh0rHssozPI2XOzR2gFPdkEDmmOcGwDX1AoGBAI+M+3WqHClD1BUt3/eQ\nDwwEseMJItd3db4qunQ5jogG1tDIslzcOjGIIj50VYlcsGH3eZFedLcAcpleaZzM\nAoTb6w3EokMphWxRerGZ6FyV+7E6Eh+eblgKGsFSYBwCNRXrYLTFzfetxxXbppy7\n9llAQXctAviCj3HwfdazdDTS\n-----END PRIVATE KEY-----\n",
+  "client_email": "bilingualbuddy@academic-ivy-394113.iam.gserviceaccount.com",
+  "client_id": "110506371250369511329",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bilingualbuddy%40academic-ivy-394113.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

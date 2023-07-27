@@ -1,25 +1,28 @@
 import MessagingResponse from 'twilio/lib/twiml/MessagingResponse'
-import { transcript } from '../../../../utilities';
+import { transcript, translate } from '../../../../utilities';
 
 export async function POST(req) {
-    message = twiml.message(JSON.stringify(req)).toString()
-    return new Response(message, {
-        status: 200,
-        headers: { 'Content-Type': 'text/xml' }
-    })
-    const { searchParams } = new URL(req.url)
-    const MediaUrl0 = searchParams.get("MediaUrl0")
-    const twiml = new MessagingResponse();
     let message
-    if (MediaUrl0 !== null) {
-        const transcriptedText = await transcript(MediaUrl0)
-        message = twiml.message(transcriptedText).toString()
-    } else {
-        message = twiml.message("There was an error" + JSON.stringify(searchParams)).toString()
-    }
+    const targetLanguage = 'en'
+    const twiml = new MessagingResponse();
+    const { searchParams } = new URL(req.url)
+    const NumMedia = searchParams.get("NumMedia")
+    const MediaUrl0 = searchParams.get("MediaUrl0")
 
-    return new Response(message, {
-        status: 200,
-        headers: { 'Content-Type': 'text/xml' }
-    })
+
+    if (NumMedia === "0") {
+        message = twiml.message("No media attached")
+        return new Response(message, {
+            status: 200,
+            headers: { 'Content-Type': 'text/xml' }
+        })
+    } else {
+        const transcriptedText = await transcript(MediaUrl0)
+        const translatedText = await translate(transcriptedText, targetLanguage)
+        message = twiml.message(transcriptedText + "\n" + translatedText).toString()
+        return new Response(message, {
+            status: 200,
+            headers: { 'Content-Type': 'text/xml' }
+        })
+    }
 }
