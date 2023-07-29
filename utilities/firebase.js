@@ -8,7 +8,9 @@ import {
     addDoc,
     setDoc,
     Timestamp,
-    getDocs
+    getDocs,
+    orderBy,
+    limit
 } from "firebase/firestore";
 
 const firebaseConfig = JSON.parse(
@@ -45,6 +47,17 @@ const addNewUserToDB = async (newUser) => {
 }
 
 export const logMessage = async (uid, message) => {
-    const messagesRef = collection(db, "users", uid, "messages")
+
     await addDoc(messagesRef, { ...message, created: new Timestamp() })
+}
+
+export const retrieveRecentMessages = async (uid) => {
+    const messagesRef = collection(db, "users", uid, "messages")
+    const q = query(messagesRef, orderBy("created", "desc"), limit(10));
+    const querySnapshot = await getDocs(q);
+    const messages = []
+    querySnapshot.forEach((doc) => {
+        messages.push(doc.data())
+    });
+    return messages.sort((a, b) => a.created - b.created)
 }

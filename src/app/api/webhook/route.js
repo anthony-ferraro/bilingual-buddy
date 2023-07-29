@@ -1,4 +1,4 @@
-import { transcribe, translate, login, createTwimlMessage, logMessage, chatResponse } from '../../../../utilities';
+import { transcribe, translate, login, createTwimlMessage, logMessage, chatResponse, retrieveRecentMessages } from '../../../../utilities';
 export async function POST(req) {
     try {
         const body = await req.text()
@@ -33,7 +33,8 @@ export async function POST(req) {
 
         if (NumMedia === "0") {
             await logMessage(user.id, { body: Body, origin: "user", media: "", mediaType: "" })
-            const text = await chatResponse(Body)
+            const recentMessages = await retrieveRecentMessages(user.id)
+            const text = await chatResponse(Body, recentMessages)
             const message = createTwimlMessage(text)
             await logMessage(user.id, { body: text, origin: "ai", media: "", mediaType: "" })
             return new Response(message, {
@@ -62,4 +63,8 @@ export async function POST(req) {
             headers: { 'Content-Type': 'text/xml' }
         })
     }
+}
+
+function getInitialProps() {
+    return {};  
 }
