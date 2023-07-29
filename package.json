@@ -13,9 +13,12 @@
     "axios": "^1.4.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "firebase": "^10.1.0",
+    "langchain": "^0.0.118",
     "next": "13.4.12",
     "node-fetch": "^3.3.2",
     "openai": "^3.3.0",
+    "pinecone-client": "^1.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "twilio": "^4.14.0"
