@@ -17,14 +17,12 @@ export async function POST(req) {
         const NumMedia = searchParams.get("NumMedia")
         const MediaUrl = searchParams.get("MediaUrl0")
         const MediaContentType = searchParams.get("MediaContentType0")
-        const Body = searchParams.get("body")
+        const Body = searchParams.get("Body")
 
         //change below to check billing status
         if (user.type !== "admin") {
-            await logMessage(user.id, { body: Body, origin: "user", media: "", mediaType: "" })
             const text = "Sorry, I can't answer that" + JSON.stringify(user)
             const message = createTwimlMessage(text)
-            await logMessage(user.id, { body: text, origin: "ai", media: "", mediaType: "" })
             return new Response(message, {
                 status: 200,
                 headers: { 'Content-Type': 'text/xml' }
@@ -55,9 +53,8 @@ export async function POST(req) {
         }
     }
     catch (ex) {
-        const text = "Sorry, I can't answer that" + ex.message + ex.stack
+        const text = "Sorry, I can't answer that" + ex.message + ex.name + ex.stack 
         const message = createTwimlMessage(text)
-        logMessage(user.id, { body: text, origin: "ai", media: "", mediaType: "" })
         return new Response(message, {
             status: 200,
             headers: { 'Content-Type': 'text/xml' }

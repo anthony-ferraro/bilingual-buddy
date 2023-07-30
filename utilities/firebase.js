@@ -28,7 +28,7 @@ export const login = async (phone) => {
         const newUser = {
             phone: phone,
             type: "restricted",
-            created: new Timestamp(),
+            created: new Timestamp(Math.floor(new Date()/1000)),
             payplan: "none"
         };
         const docRef = await addNewUserToDB(newUser)
@@ -48,12 +48,13 @@ const addNewUserToDB = async (newUser) => {
 
 export const logMessage = async (uid, message) => {
 
-    await addDoc(messagesRef, { ...message, created: new Timestamp() })
+    const messagesRef = collection(db, "users", uid, "messages")
+    await addDoc(messagesRef, { ...message, created: new Timestamp(Math.floor(new Date()/1000)) })
 }
 
 export const retrieveRecentMessages = async (uid) => {
     const messagesRef = collection(db, "users", uid, "messages")
-    const q = query(messagesRef, orderBy("created", "desc"), limit(10));
+    const q = query(messagesRef, where("body", "!=", false), orderBy("body", "desc"), orderBy("created", "desc"), limit(10));
     const querySnapshot = await getDocs(q);
     const messages = []
     querySnapshot.forEach((doc) => {
