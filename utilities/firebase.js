@@ -28,7 +28,7 @@ export const login = async (phone) => {
         const newUser = {
             phone: phone,
             type: "restricted",
-            created: new Timestamp(Math.floor(new Date()/1000)),
+            created: new Timestamp(Math.floor(new Date() / 1000)),
             payplan: "none"
         };
         const docRef = await addNewUserToDB(newUser)
@@ -46,10 +46,10 @@ const addNewUserToDB = async (newUser) => {
     return docRef
 }
 
-export const logMessage = async (uid, message) => {
+export const logMessage = (uid, message, customTimestamp = null) => {
 
     const messagesRef = collection(db, "users", uid, "messages")
-    await addDoc(messagesRef, { ...message, created: new Timestamp(Math.floor(new Date()/1000)) })
+    addDoc(messagesRef, { ...message, created: new Timestamp(customTimestamp !== null ? customTimestamp : Math.floor(new Date() / 1000)) })
 }
 
 export const retrieveRecentMessages = async (uid) => {
@@ -61,4 +61,13 @@ export const retrieveRecentMessages = async (uid) => {
         messages.push(doc.data())
     });
     return messages.sort((a, b) => a.created - b.created)
+}
+
+export const logError = (ex, user) => {
+    const uid = user?.id
+    const name = ex.name
+    const message = ex.message
+    const stack = ex.stack
+    const errorsRef = collection(db, "errors")
+    addDoc(errorsRef, {uid: uid, name: name, message: message, stack: stack})
 }

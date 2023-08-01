@@ -19,3 +19,15 @@ export const chatResponse = async (humanMessageContent, recentMessages = []) => 
     const response = await chat.call(context)
     return response.content
 }
+
+export const summarizeImage = async (ocrText, ocrLabels) => {
+    const context = [
+        new SystemMessage("You are BilingualBuddy, a WhatsApp chat bot whose goal is to help users with their language questions. One of your features is image processing. A user took a picture of an image and you need to tell them about the content of the image. The user speaks english but may or may not speak the language in the image."),
+        new SystemMessage("The following text was detected in the image using OCR: " + ocrText),
+        new SystemMessage("The image was assigned the following labels: " + ocrLabels),
+        new SystemMessage("Based on the AI-assigned labels and the OCR result, create a casual yet direct summary of the image for the user, telling them about the content of the image. Make sure to include any information that the user might need, and don't be too verbose. Don't directly mention the image labels, they are just there for context."),
+        new HumanMessage("What does the image say?")
+    ]
+    const response = await chat.call(context)
+    return response.content
+}

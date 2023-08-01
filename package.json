@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@google-cloud/translate": "^7.2.2",
+    "@google-cloud/vision": "^3.1.4",
     "axios": "^1.4.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "firebase": "^10.1.0",
+    "jimp": "^0.22.10",
     "langchain": "^0.0.118",
     "next": "13.4.12",
     "node-fetch": "^3.3.2",
@@ -21,6 +23,7 @@
     "pinecone-client": "^1.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sharp": "^0.32.4",
     "twilio": "^4.14.0"
   },
   "devDependencies": {
