@@ -2,7 +2,6 @@ import { AIMessage, HumanMessage, SystemMessage } from "langchain/schema";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 
 const chat = new ChatOpenAI()
-
 export const chatResponse = async (humanMessageContent, recentMessages = []) => {
     let context = []
     if (recentMessages.length < 2) {

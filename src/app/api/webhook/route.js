@@ -60,7 +60,7 @@ export async function POST(req) {
                 })
             } else if (MediaContentType.includes("video")) {
                 //handle video
-                const message = "Sorry, this media type is not yet supported."
+                const message = "Sorry, this media type is not yet supported"
                 return new Response(message, {
                     status: 200,
                     headers: { 'Content-Type': 'text/xml' }
